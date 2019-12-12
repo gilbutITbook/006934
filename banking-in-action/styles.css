@@ -1,0 +1,8 @@
+.top5 {
+    margin-top: 1%;
+}
+
+.stock-display {
+    white-space: nowrap;
+    overflow: auto;
+}

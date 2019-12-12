@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RxJS 반응형 프로그래밍 뱅킹 애플리케이션</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="vendor/styles/bootstrap-darkly.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- 1. Load libraries -->
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/ramda/dist/ramda.js"></script>
+  <script src="node_modules/moment/moment.js"></script>
+  <script src="node_modules/react/dist/react.js"></script>
+  <script src="node_modules/react-dom/dist/react-dom.js"></script>
+  <script src="vendor/js/pouchdb-6.2.0.min.js"></script>
+  <script src="node_modules/react-bootstrap/dist/react-bootstrap.js"></script>
+  <script src="node_modules/redux/dist/redux.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+  <div id="message-center"></div>
+</div>
+
+<div id="root"></div>
+
+
+
+<!-- Utilities -->
+<script src="app/scripts/util/searchEngine.js"></script>
+<script src="app/scripts/util/createMiddleware.js"></script>
+
+<!-- Services -->
+<script src="app/scripts/db.js"></script>
+<script src="app/scripts/actions.js"></script>
+<script src="app/scripts/reducers.js"></script>
+<script src="app/scripts/epics/interest.js"></script>
+<script src="app/scripts/epics/search.js"></script>
+<script src="app/scripts/epics/transaction.js"></script>
+<script src="app/scripts/epics/user.js"></script>
+<script src="app/scripts/epics/message.js"></script>
+<script src="app/scripts/epics/logging.js"></script>
+
+<!-- Components -->
+<script src="app/scripts/components/accounts.component.js"></script>
+<script src="app/scripts/components/header.component.js"></script>
+<script src="app/scripts/components/message.component.js"></script>
+<script src="app/scripts/components/portfolio.component.js"></script>
+<script src="app/scripts/components/transaction.component.js"></script>
+<script src="app/scripts/components/typeahead.component.js"></script>
+
+<!-- 2. Load our 'app' -->
+<script src="app/scripts/app.js"></script>
+
+
+</body>
+</html>

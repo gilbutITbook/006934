@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Suite</title>
+  <link href="../node_modules/mocha/mocha.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="mocha"></div>
+
+<!--<script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>-->
+<script src="../node_modules/rxjs/bundles/Rx.js"></script>
+<script src="../node_modules/chai/chai.js"></script>
+<script src="../node_modules/mocha/mocha.js"></script>
+<script>mocha.setup('bdd')</script>
+
+<!-- Sources -->
+<script src="../app/scripts/util/createMiddleware.js"></script>
+<script src="../app/scripts/actions.js"></script>
+<script src="../app/scripts/epics/user.js"></script>
+<script src="../app/scripts/epics/logging.js"></script>
+<script src="../app/scripts/epics/message.js"></script>
+<script src="../app/scripts/epics/search.js"></script>
+<script src="../app/scripts/epics/transaction.js"></script>
+<script src="../app/scripts/epics/interest.js"></script>
+
+<!-- Scripts -->
+<script src="test.balance.js"></script>
+
+<script>
+//  mocha.checkLeaks();
+  mocha.globals(['Rx']);
+  mocha.run();
+</script>
+</body>
+</html>

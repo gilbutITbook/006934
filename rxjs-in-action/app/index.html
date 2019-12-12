@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RxJS 반응형 프로그래밍 예제</title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="codemirror/theme/dracula.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container grid">
+  <label for="example-change">예제 목록</label>
+  <select id="example-change" class="form-control">
+    <option value="welcome">Welcome</option>
+    <option value="2.1">2.1 - map, reduce, filter로 컬렉션 처리하기</option>
+    <option value="2.2">2.2 - 사용자 지정 BufferIterator 함수</option>
+    <option value="2.3">2.3 - 제너레이터로 피보나치 계산기 만들기</option>
+    <option value="2.4">2.4 - RxJS를 사용하는 사용자 정의 진행률 표시기 모듈</option>
+    <option value="3.1">3.1 - 옵저버블의 취소</option>
+    <option value="3.2">3.2 - Promise의 해제</option>
+    <option value="3.3">3.3 - 스트림을 통한 함수 매핑</option>
+    <option value="3.4">3.4 - 스트림에서 이벤트 필터링</option>
+    <option value="3.5">3.5 - reduce로 지출 계산하기</option>
+    <option value="3.6">3.6 - 사용자 정의 exclude() 연산자</option>
+    <option value="3.7">3.7 - 집계 연산자 사용 예</option>
+    <option value="4.1">4.1 - 옵저버블과 setTimeout() 작업</option>
+    <option value="4.2">4.2 - RxJS 타이머로 간단한 애니메이션 만들기</option>
+    <option value="4.3">4.3 - 자바스크립트 타이밍 함수와 RxJS를 사용한 명시적 시간</option>
+    <option value="4.4">4.4 - 간단한 주식 시세 표시기 위젯 시뮬레이션</option>
+    <option value="4.5">4.5 - 시간 간격으로 증가하는 주식 데이터</option>
+    <option value="4.6">4.6 - delay() 연산자</option>
+    <option value="4.7">4.7 - 옵저버블 시퀀스 전체를 이동시키는 delay()</option>
+    <option value="4.8">4.8 - 순차적인 delay() 연산자</option>
+    <option value="4.9">4.9 - 스마트 검색 위젯을 위한 수동 디바운싱 로직</option>
+    <option value="4.10">4.10 & 4.11 - 바닐라 자바스크립트를 사용하는 debounce() 메서드</option>
+    <option value="4.12">4.12 - 간단한 디바운싱 최적화 검색 프로그램</option>
+    <option value="4.13">4.13 - 스로틀링을 이용한 버튼 액션 처리</option>
+    <option value="4.14">4.14 - bufferWhen()으로 폼 필드 기록 만들기</option>
+    <option value="4.15">4.15 - 일정 기간 이벤트 버퍼링하기</option>
+    <option value="5.1">5.1 - 마우스와 터치 스트림 병합 결과로 이벤트 데이터를 매칭하는 사례</option>
+    <option value="5.2">5.2 - 업스트림 이벤트 데이터를 정규화하여 스트림 병합하기</option>
+    <option value="5.3">5.3 - 반응형 검색 솔루션</option>
+    <option value="5.4">5.4 & 5.5 - 주가 요청 스트림</option>
+    <option value="5.4m">5.4 & 5.5 수정 - 주가 요청 스트림</option>
+    <option value="5.6">5.6 - 여러 주식 종목 코드 갱신하기</option>
+    <option value="5.6m">5.6 수정 - 여러 주식 종목 코드 갱신하기</option>
+    <option value="5.7">5.7 & 5.8 - 드래그 앤 드롭의 스트림 로직</option>
+    <option value="6.1">6.1 - 스트림의 시작에 연결하기</option>
+    <option value="6.2">6.2 & 6.3 - 해제 기능을 구현한 SessionDisposable 객체</option>
+    <option value="6.4">6.4 - combineLatest()로 스트림 동기화하기</option>
+    <option value="6.5">6.5 & 6.6 & 6.7 - 여러 URL 단축 스트림 결합하기</option>
+    <option value="6.8">6.8 - forkJoin()으로 여러 종목 코드를 동시에 가져오기</option>
+    <option value="6.8m">6.8 수정 - forkJoin()으로 여러 종목 코드를 동시에 가져오기</option>
+    <option value="6.9">6.9 & 6.10 - 트랜잭션 클래스</option>
+    <option value="6.11">6.11 - 대량 쓰기로 쓰기 작업 최적화하기</option>
+    <option value="6.12">6.12 - 단일 스트림 선언에서 두 개의 쿼리</option>
+    <option value="6.13">6.13 & 6.14 - withdraw 함수(</option>
+    <option value="7.1">7.1 - ajax() 함수의 성공과 에러 콜백</option>
+    <option value="7.2">7.2 - 비동기 코드를 사용한 명령형 에러 처리</option>
+    <option value="7.3">7.3 - Promise화 된 ajax()</option>
+    <option value="7.4">7.4 - Try 함수형 데이터 타입의 내부</option>
+    <option value="7.5">7.5 - 예외가 발생할 때 옵저버에서 error 메서드 호출하기</option>
+    <option value="7.6">7.6 - catch()로 예외 복구하기</option>
+    <option value="7.7">7.7 - 주식 시세 표시기 스트림에 대한 선형 백오프 재시도 구현</option>
+    <option value="7.8">7.8 - 일정 횟수, 선형 백오프, 에러가 지속되면 예외 발생하게 하기</option>
+    <option value="7.9">7.9 - 에러 처리를 하는 주식 시세 표시기</option>
+    <option value="7.9m">7.9 수정- 에러 처리를 하는 주식 시세 표시기</option>
+    <option value="8.1">8.1 - interval 팩토리</option>
+    <option value="8.3">8.3 - RxJS를 사용하는 웹소켓 클라이언트</option>
+    <option value="8.4">8.4 - 이벤트 이미터로서의 주식 시세 표시기</option>
+    <option value="8.4m">8.4 수정 - 이벤트 이미터로서의 주식 시세 표시기</option>
+    <option value="8.5">8.5 - 변경 추적 기능이 있는 완전한 주식 시세 표시기 위젯</option>
+    <option value="8.5m">8.5 수정 - 변경 추적 기능이 있는 완전한 주식 시세 표시기 위젯</option>
+    <option value="9.1">9.1 - 순수 함수 notEmpty에 대한 첫 번째 단위 테스트</option>
+    <option value="9.2">9.2 - Mocha와 Chai로 비동기 함수 테스트하기</option>
+    <option value="9.3">9.3 - Promise와 비동기 테스트</option>
+    <option value="9.5">9.5 - 배열의 모든 수를 더하는 스트림 테스트</option>
+    <option value="9.6">9.6 - 지연을 이용한 옵저버블 테스트</option>
+    <option value="9.7">9.7 - 옵저버블 내에서 Promise AJAX 호출 테스트</option>
+    <option value="9.8">9.8 - 비동기 스케줄러에 값 발행하기</option>
+    <option value="9.9">9.9 - map() 연산자 테스트</option>
+    <option value="9.10">9.10 - debounceTime() 연산자 테스트</option>
+    <option value="9.11">9.11 - 가상 시간 스케줄러로 runInterval() 속도 올리기</option>
+    <option value="9.12">9.12 - 단위 테스트 주요 검색 로직</option>
+    <option value="10.10">10.10</option>
+  </select>
+
+  <div class="row" style="padding-top: 5px">
+    <div class="btn-group col-xs-offset-4" role="group" aria-label="...">
+      <button id="show-javascript" type="button" class="btn btn-primary">JavaScript</button>
+      <button id="show-html" type="button" class="btn btn-primary">HTML</button>
+      <button id="show-css" type="button" class="btn btn-primary">CSS</button>
+    </div>
+  </div>
+
+  <form>
+    <div id="javascript-container">
+      <label class="h2" for="javascript">JavaScript</label>
+      <textarea class="form-control" id="javascript">
+/*
+      Welcome!
+      드롭다운 메뉴에서 원하는 예제 번호를 선택하세요.
+*/
+    </textarea>
+    </div>
+
+    <div id="html-container">
+      <label class="h2" for="html">HTML</label>
+      <textarea id="html"></textarea>
+    </div>
+
+    <div id="css-container">
+      <label class="h2" for="css">CSS</label>
+      <textarea id="css"></textarea>
+    </div>
+  </form>
+</div>
+
+<div class="output grid">
+  <h2>Output</h2>
+  <div class="well">
+    <iframe sandbox="allow-scripts allow-same-origin" id="output" height="400" scrolling="yes"></iframe>
+  </div>
+</div>
+
+
+<div class="output grid">
+  <h2>Console</h2>
+  <iframe sandbox="allow-scripts allow-same-origin" id="console" height="400" scrolling="yes"></iframe>
+</div>
+
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="rxjs/bundles/Rx.min.js"></script>
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/addon/mode/multiplex.js"></script>
+<script src="codemirror/mode/css/css.js"></script>
+<script src="codemirror/mode/javascript/javascript.js"></script>
+<script src="codemirror/mode/xml/xml.js"></script>
+<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="babel-standalone/babel.min.js"></script>
+
+<script src="runtime.js"></script>
+</body>
+</html>
